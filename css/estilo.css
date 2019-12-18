@@ -1,0 +1,393 @@
+﻿* {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    line-height: 1.4am;
+}
+
+.celulaEmEdicao input[type=text] {
+    width: 100%;
+    border: 0;
+    background-color: rgb(255, 253, 210);
+}
+
+
+/** Todas as Páginas onde tem resultado*/
+
+#result {
+    width: 100%;
+}
+
+.contador {
+    /** Relatório em pausa*/
+    font-family: arial;
+    font-size: 15px;
+    padding: 0;
+}
+
+
+/**Botão para cadastramento de usuários e funcionários - listafuncionarios e listausuarios*/
+
+.btn_add_profile {
+    width: 80px;
+    text-align: center;
+    padding: 0;
+    color: #00008B;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    margin-right: 5px;
+}
+
+.btn_add_profile a {
+    text-decoration: none;
+}
+
+.btn_add_profile a:hover {
+    color: #006400;
+}
+
+.btn_add_profile:hover {
+    color: #23DC61;
+    border-radius: 25px;
+}
+
+
+/**-------------------------fim---------------------**/
+
+
+/**Botão para visualizar os desativados - listafuncionarios e listausuarios*/
+
+.btn_filed_profile {
+    width: 80px;
+    text-align: center;
+    padding: 0;
+    color: #00008B;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    margin: 0 10px 0 20px;
+}
+
+.btn_filed_profile a {
+    text-decoration: none;
+}
+
+.btn_filed_profile a:hover {
+    color: #006400;
+}
+
+.btn_filed_profile:hover {
+    color: #23DC61;
+    border-radius: 25px;
+}
+
+
+/**-------------------------fim---------------------**/
+
+.select_maxPagina {
+    /*Usado na página lista_usuário e lista_funcionário**/
+    margin: 0 0 0 10px;
+    height: 50px;
+    float: right;
+    width: 170px;
+    padding-top: 10px;
+}
+
+.select_maxPagina form {
+    margin: auto;
+}
+
+.select_maxPagina form select {
+    width: 100%;
+}
+
+.divsubmenu {
+    /*Usado na página lista_usuário e lista_funcionário**/
+    position: relative;
+    padding-bottom: 45px;
+}
+
+@media print {
+    /**utilizado para mostrar e ocultar div na impressão dos relatórios **/
+    .no-print {
+        display: none;
+    }
+    .print-only {
+        display: inline;
+    }
+    form {
+        visibility: hidden;
+    }
+    .imprimir {
+        visibility: visible;
+    }
+}
+
+@media screen {
+    .print-only {
+        display: none
+    }
+}
+
+
+/**---------------------fim-----------------------------------**/
+
+.clear-both {
+    clear: both;
+}
+
+.input-search {
+    /**Barra de pesquisa de funcionarios e usuários**/
+    border: 1px solid #CCC;
+    padding: 5px 14px;
+    font-size: 15px;
+    margin: 13px 0;
+    width: 800px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.input-search:-webkit-input-placeholder {
+    font-style: italic
+}
+
+.input-search:-moz-placeholder {
+    font-style: italic
+}
+
+.input-search:-ms-input-placeholder {
+    font-style: italic
+}
+
+
+/**---------------------fim-----------------------------------**/
+
+
+/**Já veio no layout**/
+
+.btn-info {
+    margin-left: 15px;
+}
+
+tr {
+    line-height: 0.5;
+}
+
+.custom-select {
+    width: 200px;
+}
+
+.relatorio {
+    margin-top: 50px;
+}
+
+
+/**---------------------fim-----------------------------------**/
+
+
+/**Aviso de proibido alteração em todas as páginas de editar dados**/
+
+.aviso-proibido-alteracao {
+    display: table;
+    margin-bottom: 20px;
+}
+
+.aviso-proibido-alteracao #divimg-aviso-proibido-alteracao {
+    float: left;
+}
+
+.aviso-proibido-alteracao #divimg-aviso-proibido-alteracao img {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.aviso-proibido-alteracao #msg-aviso-proibido-alteracao {
+    margin-left: 15%;
+    text-align: center;
+}
+
+
+/**---------------------fim-----------------------------------**/
+
+
+/**********************Paginator**********************************/
+
+.paginacao {
+    clear: both;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    font-size: 12px;
+    text-align: right;
+    height: 56px;
+}
+
+.paginacao span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.pagination-list {
+    margin: 13px 0;
+    list-style: none;
+}
+
+.page {
+    text-align: center;
+    margin-right: 8px;
+}
+
+.pagination-separator {
+    margin: 0 7px 0 7px;
+}
+
+.pagination-separator span {
+    vertical-align: -7px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 980px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .desktop-hide {
+        display: none !important;
+    }
+}
+
+.record-total-quantity {
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+.record_total {
+    float: left;
+    margin: 10px;
+    font-size: 12px;
+    color: #858585;
+}
+
+.horizontal-separator {
+    margin: 20px 0;
+    position: relative;
+    color: #ececec;
+    float: left;
+    width: 100%;
+    border-top: solid 1px #D4D4D4;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+
+/**---------------------fim-----------------------------------**/
+
+
+/**-------------------Edita_grupoacesso e Edita Permissão----------------**/
+
+.form-perm-group {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin: 5px 0;
+}
+
+.form-perm-group-desc {
+    font-weight: 500;
+}
+
+
+/**--------------FIM Edita_grupoacesso e Edita Permissão-----------------------**/
+
+.mask-carregando {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.mask-carregando img {
+    margin: 100px auto;
+    z-index: 1000;
+    background-color: #fff;
+    width: 200px;
+    height: 200px;
+}
+
+
+/**---------Mensagem Usuário/Senha Inválido-------**/
+
+.msg_login {
+    padding: 10px;
+}
+
+.msg_login_img {
+    float: left;
+    height: 70px;
+    margin-right: 10px;
+}
+
+
+/**---------FIM Mensagem Usuário/Senha Inválido-------**/
+
+
+/**ALERTA DE NAVEGADOR DESATUALIZADO--**/
+
+.main-alert {
+    background-color: #f25648;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #fff;
+    padding: 15px;
+    position: relative;
+}
+
+.main-alert strong {
+    font-weight: 700;
+    display: block;
+    text-transform: uppercase;
+}
+
+
+/**--FIM--------------------------**/
+
+
+/** PAGINA RELATORIO DETALHADO TR QUE MOSTRA OS DETALHES**/
+
+.contentDetails {
+    text-align: left;
+    line-height: 1.2;
+    display: none;
+}
+
+.contentPause {
+    height: 20px;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+}
+
+.contentPausaDetailsOne {
+    width: 50%;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.contentPausaDetailsTwo {
+    float: right;
+    width: 50%;
+    position: relative;
+    text-align: left;
+}
