@@ -39,6 +39,32 @@ $itensPorPagina = (isset($_SESSION["maxPaginaGeraRelatorioemployee"]) && $_SESSI
 $paginaAtual = (int) $currentpage;
 
 //---------Fim Páginação---------------------------
+
+function intervaloy( $entrada, $saida, $entrada1,$saida1 , $retorna_segundos=null) {
+       $entrada = ($entrada==''?'00:00':explode( ':', $entrada ));
+       $saida   = ($saida==''?'00:00':explode( ':', $saida ));
+       $entrada1 = ($entrada1==''?'00:00':explode( ':', $entrada1 ));
+       $saida1   = ($saida1==''?'00:00':explode( ':', $saida1 ));
+       
+       $minutos = (( $saida[0] - $entrada[0] )+( $saida1[0] - $entrada1[0] )) * 60 + (($saida[1] - $entrada[1])+($saida1[1] - $entrada1[1]));
+       if( $minutos < 0 ) $minutos += 24 * 60;
+       $zeroH=(($minutos / 60)<10 ?'0':'');
+       $zeroM=(($minutos % 60)<10 ?'0':'');
+       if(is_null($retorna_segundos)){
+       return sprintf( "$zeroH%d:$zeroM%d", $minutos / 60, $minutos % 60 );
+       }else {
+           $tv=sprintf( "$zeroH%d:$zeroM%d", $minutos / 60, $minutos % 60 );
+               list($horas,$minutos) = explode(":",$tv);
+    $calc = $horas * 3600 + $minutos * 60;
+    return $calc;
+       }
+    }
+        function segundos_em_tempo($segundos) {
+     $horas = floor($segundos / 3600);
+     $minutos = floor($segundos % 3600 / 60);
+     $segundos = $segundos % 60;
+     return sprintf("%d:%02d:%02d", $horas, $minutos, $segundos);
+    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -56,6 +82,7 @@ $paginaAtual = (int) $currentpage;
                 <th scope="col">V.I</th>
                 <th scope="col">S.P2</th>
                 <th scope="col">V.P2</th>
+                <th scope="col">Soma do dia</th>
             </tr>
         </thead>
         <tbody>
@@ -93,7 +120,7 @@ $paginaAtual = (int) $currentpage;
             $exec_query = mysqli_query($conn, $query);
             $registros = mysqli_fetch_assoc($exec_query);
             mysqli_close($conn);
-
+$soma_total=0;
             if ($totalNumRows > 0) {
                 do {
                     ?>
@@ -107,9 +134,20 @@ $paginaAtual = (int) $currentpage;
                         <td><?= $registros['HORA_SAIDA'] ?></td>
                         <td><?= $registros['HORA_SAIDA_PAUSA'] ?></td>
                         <td><?= $registros['HORA_VOLTA_PAUSA'] ?></td>
+                        <td><?php 
+                        
+                        echo intervaloy($registros['HORA_ENTRADA'], $registros['HORA_SAIDA_INTERVALO'], $registros['HORA_RETORNO_INTERVALO'], $registros['HORA_SAIDA']);
+                        
+                        $soma_total+=intervaloy($registros['HORA_ENTRADA'], $registros['HORA_SAIDA_INTERVALO'], $registros['HORA_RETORNO_INTERVALO'], $registros['HORA_SAIDA'],'segundos');
+                        
+                                ?></td>
                     </tr>
 
                 <?php } while ($registros = mysqli_fetch_assoc($exec_query));
+                
+                ?>
+                    <tr><td>Soma do Mês:</td><td colspan="7"><?php echo segundos_em_tempo($soma_total); ?></td></tr>  
+                <?php
                 } else { ?>
                 <tr>
                     <td colspan="7">
